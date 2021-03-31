@@ -3,7 +3,7 @@ const socket = io()
 let loader = document.createElement("div")
 loader.classList.add("loader")
 
-socket.on('question', (question) => {
+socket.on("question", (question) => {
     swal({
         title: question.text,
         buttons: {
@@ -22,10 +22,10 @@ socket.on('question', (question) => {
             4: {
                 text: question.answers[3],
                 value: 4,
-            }
+            },
         },
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     }).then(answer => {
         socket.emit("answer", question.answers[answer - 1]) // We subtract 1 because arrays start at 0 and not 1
         swal({
@@ -33,17 +33,17 @@ socket.on('question', (question) => {
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
-            closeOnEsc: false
+            closeOnEsc: false,
         })
     })
 })
 
-socket.on('connected', async _ => {
+socket.on("connected", async _ => {
     const name = await swal("Your name:", {
         content: "input",
         button: "Join",
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
     socket.emit("name", name)
     swal({
@@ -51,7 +51,7 @@ socket.on('connected', async _ => {
         buttons: false,
         content: loader,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
 })
 
@@ -62,7 +62,7 @@ socket.on("correct", async _ => {
         icon: "success",
         buttons: false,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
 })
 
@@ -73,7 +73,7 @@ socket.on("incorrect", async _ => {
         icon: "error",
         buttons: false,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
 })
 
@@ -84,7 +84,7 @@ socket.on("noAnswer", async _ => {
         icon: "error",
         buttons: false,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
 })
 
@@ -99,6 +99,6 @@ socket.on("gameover", async (leaderboard) => {
         content: leaderboardDisplay,
         buttons: false,
         closeOnClickOutside: false,
-        closeOnEsc: false
-    })  
+        closeOnEsc: false,
+    })
 })

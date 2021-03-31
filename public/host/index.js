@@ -5,13 +5,13 @@ let players = document.createElement("ul")
 let loader = document.createElement("div")
 loader.classList.add("loader")
 
-socket.on('connected', async () => {
+socket.on("connected", async () => {
     swal({
         title: "Players:",
         button: "Start",
         content: players,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     }).then(_ => {
         socket.emit("start")
         swal({
@@ -19,7 +19,7 @@ socket.on('connected', async () => {
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
-            closeOnEsc: false
+            closeOnEsc: false,
         })
     })
 })
@@ -32,7 +32,7 @@ socket.on("timeUp", async (scores) => {
         button: "Next",
         content: scoreDisplay,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     }).then(_ => {
         socket.emit("next")
         swal({
@@ -40,7 +40,7 @@ socket.on("timeUp", async (scores) => {
             buttons: false,
             content: loader,
             closeOnClickOutside: false,
-            closeOnEsc: false
+            closeOnEsc: false,
         })
     })
 
@@ -49,7 +49,7 @@ socket.on("timeUp", async (scores) => {
     }
 })
 
-socket.on('name', async (name) => {
+socket.on("name", async (name) => {
     players.innerHTML += `<li>${name}</li>`
 })
 
@@ -64,6 +64,6 @@ socket.on("gameover", async (leaderboard) => {
         content: leaderboardDisplay,
         buttons: false,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
     })
 })

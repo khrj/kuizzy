@@ -10,7 +10,7 @@ Run
 yarn
 ```
 
-and then 
+and then
 
 ```bash
 yarn start
