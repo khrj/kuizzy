@@ -13,7 +13,7 @@ yarn
 and then
 
 ```bash
-yarn start
+yarn build && yarn start
 ```
 
 and open
