@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.swal-button--1 {
+    background-color: #bb1b3a;
+}
+
+.swal-button--2 {
+    background-color: #2860be;
+}
+
+.swal-button--3 {
+    background-color: #c59a30;
+}
+
+.swal-button--4 {
+    background-color: #459429;
+}
+
+.swal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swal-content {
+    display: flex;
+    justify-content: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (orientation: landscape) {
+    .swal-modal {
+        width: 50vw
+    }
+}
+
+@media (orientation: portrait) {
+    .swal-modal {
+        width: 90vw
+    }
+}
+
+.swal-modal {
+    height: 30rem;
+    max-height: 90vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.swal-content__input {
+    font-family: "Open Sans";
+}
